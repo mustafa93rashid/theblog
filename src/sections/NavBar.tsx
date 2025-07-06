@@ -67,7 +67,6 @@ const NavBar = () => {
                 "text-lg leading-6",
                 "fixed inset-0  h-screen w-screen",
                 "bg-white dark:bg-darkNavy",
-
               )}
             >
 
@@ -81,7 +80,11 @@ const NavBar = () => {
                 <motion.li key={index} variants={itemVariants} className="p-2">
                   <NavLink to={item.path} end={item.path === "/theblog"}
                     className={({ isActive }) => isActive ? "border-b-2 pb-1" : " "}
-                    onClick={scrollToTop}>
+                    onClick={() => {
+                      scrollToTop();        
+                      setMenuOpen(false); 
+                    }}
+                  >
                     {item.name}
                   </NavLink>
                 </motion.li>
@@ -137,8 +140,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-
-
-
-
-

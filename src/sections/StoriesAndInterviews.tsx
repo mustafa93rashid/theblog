@@ -66,14 +66,14 @@ const StoriesAndInterviews = ({ pargraphSize }: StoriesAndInterviewsProps) => {
                         <div className="flex flex-col gap-3 md:flex-row">
                             <input type="email" placeholder="Enter your email" ref={emailRef}
                                 className="pr-3.5 pl-4 py-3 border border-gray02 rounded-lg placeholder:text-gray01 md:w-[360px]" />
-                            <button type="submit" className="font-medium text-white bg-purple01 rounded-lg w-fit px-5 py-3 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105">
+                            <button type="submit" className="font-medium text-white bg-purple01 rounded-lg w-fit px-5 py-3 transition delay-150 duration-300 ease-in-out hover:shadow-lg hover:shadow-purple-500/50">
                                 {loading ? (<span className="inline-block animate-spin text-center"><FiLoader /></span>
                                 ) : (
                                     "Subscribe"
                                 )}
                             </button>
                         </div>
-                        <p className="text-sm mt-3 text-gray01"> We care about your data in our<Link to="#" className="underline">privacy policy</Link></p>
+                        <p className="text-sm mt-3 text-gray01"> We care about your data in our <Link to="#" className="underline">privacy policy</Link></p>
                     </div>
                 </div>
             </div>

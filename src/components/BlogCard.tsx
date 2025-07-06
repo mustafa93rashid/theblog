@@ -17,8 +17,8 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog, cardContainerClass, imgClass,
 
   return (
     <div className={`${cardContainerClass} overflow-hidden`}>
-      <img loading="lazy" src={blog.image} alt={blog.title}
-        className={`transition duration-300 transform hover:scale-105 hover:brightness-110 hover:opacity-95 ${imgClass}`} />
+      <Link to={`/theblog/${blog.id}`}><img loading="lazy" src={blog.image} alt={blog.title}
+        className={`transition duration-300 transform hover:scale-105 hover:brightness-110 hover:opacity-95 ${imgClass}`} /></Link>
       <div className={`flex flex-col gap-6 ${pargClass}`}>
         <div className="flex flex-col gap-3 ">
           <p className="text-sm font-semibold leading-5 text-purple01 flex"> <span className="hidden lg:block">{blog?.name}</span> {blog.date}</p>
