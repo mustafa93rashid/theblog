@@ -81,8 +81,8 @@ const NavBar = () => {
                   <NavLink to={item.path} end={item.path === "/theblog"}
                     className={({ isActive }) => isActive ? "border-b-2 pb-1" : " "}
                     onClick={() => {
-                      scrollToTop();        
-                      setMenuOpen(false); 
+                      scrollToTop();
+                      setMenuOpen(false);
                     }}
                   >
                     {item.name}
@@ -121,8 +121,10 @@ const NavBar = () => {
           {NavData.map((item, index) => (
             <li key={index} className="p-2">
               <NavLink to={item.path} end={item.path === "/theblog"}
-                className={({ isActive }) => isActive ? "border-b-2 pb-1" : " "
-                }
+                className={({ isActive }) => isActive ? "border-b-2 pb-1" : " "}
+                 onClick={() => {
+                  scrollToTop();
+                }}
               >
                 {item.name}
               </NavLink>
