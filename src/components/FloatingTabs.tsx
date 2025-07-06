@@ -34,8 +34,8 @@ const FloatingTabs: React.FC = () => {
           onClick={() => handleClick(index, tab.action, tab.target)}
           className={clsx(
             "group flex items-center overflow-hidden cursor-pointer shadow-md rounded-r-lg transition-all duration-300",
-            "pl-2 md:pl-3 pr-2 py-1 h-10",
-            activeTab === index ? "w-[120px]" : "w-[40px]",
+            "pl-1  pr-2 py-1 h-10",
+            activeTab === index ? "w-[100px]" : "w-[33px]",
             tab.color
           )}
         >
