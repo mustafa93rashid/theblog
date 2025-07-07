@@ -1,10 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const getMode = () => {
+const getMode = (): boolean => {
   const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark') return true;
-  if (savedTheme === 'light') return false;
-  return false;
+
+  if (savedTheme === null) {
+    localStorage.setItem('theme', 'light');
+    return false; 
+  }
+
+  return savedTheme === 'dark';
 };
 
 interface ModeInterface {
