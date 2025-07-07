@@ -4,7 +4,7 @@ const getMode = () => {
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'dark') return true;
   if (savedTheme === 'light') return false;
-  return window.matchMedia('(prefers-color-scheme: light)').matches;
+  return window.matchMedia('(prefers-color-scheme: dark)').matches;
 };
 
 interface ModeInterface {
