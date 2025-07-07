@@ -1,16 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const getMode = (): boolean => {
+const getMode = () => {
   const savedTheme = localStorage.getItem('theme');
-  const root = document.documentElement;
-
-  if (savedTheme === 'dark') {
-    root.classList.add('dark');
-    return true;
-  }
-
-  root.classList.remove('dark');
-  return false;
+  if (savedTheme === 'dark') return true;
+  if (savedTheme === 'light') return false;
+  return window.matchMedia('(prefers-color-scheme: light)').matches;
 };
 
 interface ModeInterface {
@@ -25,10 +19,10 @@ const modeSlice = createSlice({
   name: 'mode',
   initialState,
   reducers: {
-    toggleDarkMode: (state) => {
+    toggleDarkMode: (state: ModeInterface) => {
       state.isDark = !state.isDark;
-      const root = document.documentElement;
 
+      const root = document.documentElement;
       if (state.isDark) {
         root.classList.add('dark');
         localStorage.setItem('theme', 'dark');
@@ -37,10 +31,10 @@ const modeSlice = createSlice({
         localStorage.setItem('theme', 'light');
       }
     },
-    setDarkMode: (state, action: { payload: boolean }) => {
+    setDarkMode: (state: ModeInterface , action: { payload: boolean }) => {
       state.isDark = action.payload;
-      const root = document.documentElement;
 
+      const root = document.documentElement;
       if (state.isDark) {
         root.classList.add('dark');
         localStorage.setItem('theme', 'dark');
@@ -52,5 +46,5 @@ const modeSlice = createSlice({
   },
 });
 
-export const { toggleDarkMode, setDarkMode } = modeSlice.actions;
+export const { toggleDarkMode, setDarkMode } = modeSlice.actions
 export default modeSlice.reducer;
