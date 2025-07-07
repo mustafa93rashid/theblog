@@ -3,12 +3,11 @@ import { createSlice } from '@reduxjs/toolkit';
 const getMode = (): boolean => {
   const savedTheme = localStorage.getItem('theme');
 
-  if (savedTheme === null) {
-    localStorage.setItem('theme', 'light');
-    return false; 
-  }
+  if (savedTheme === 'dark') return true;
+  if (savedTheme === 'light') return false;
 
-  return savedTheme === 'dark';
+  localStorage.setItem('theme', 'light');
+  return false;
 };
 
 interface ModeInterface {
@@ -23,32 +22,22 @@ const modeSlice = createSlice({
   name: 'mode',
   initialState,
   reducers: {
-    toggleDarkMode: (state: ModeInterface) => {
+    toggleDarkMode: (state) => {
       state.isDark = !state.isDark;
+      const theme = state.isDark ? 'dark' : 'light';
 
-      const root = document.documentElement;
-      if (state.isDark) {
-        root.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        root.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      }
+      document.documentElement.classList.toggle('dark', state.isDark);
+      localStorage.setItem('theme', theme);
     },
-    setDarkMode: (state: ModeInterface , action: { payload: boolean }) => {
+    setDarkMode: (state, action: { payload: boolean }) => {
       state.isDark = action.payload;
+      const theme = state.isDark ? 'dark' : 'light';
 
-      const root = document.documentElement;
-      if (state.isDark) {
-        root.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        root.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      }
+      document.documentElement.classList.toggle('dark', state.isDark);
+      localStorage.setItem('theme', theme);
     },
   },
 });
 
-export const { toggleDarkMode, setDarkMode } = modeSlice.actions
+export const { toggleDarkMode, setDarkMode } = modeSlice.actions;
 export default modeSlice.reducer;

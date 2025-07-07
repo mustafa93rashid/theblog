@@ -1,25 +1,23 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import NavBar from './sections/NavBar';
 import Footer from './sections/Footer';
 import { FooterData } from './data/FooterData';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { toggleDarkMode } from './redux/slice/darkmode';
 import HandleLoadingComponent from './components/Loader/HandleLoadingComponent';
 import ScrollToTop from './components/ScrollToTop';
 import FloatingTabs from './components/FloatingTabs';
 import PageWrapper from './utlis/PageWrapper';
 import { AnimatePresence } from 'framer-motion';
-import { useLocation } from "react-router-dom";
+import type { RootState } from './redux/store';
 
 function App() {
-
-  const dispatch = useDispatch()
+  const isDark = useSelector((state: RootState) => state.mode.isDark);
+  const location = useLocation();
 
   useEffect(() => {
-    dispatch(toggleDarkMode())
-  }, []);
-  const location = useLocation();
+    document.documentElement.classList.toggle('dark', isDark);
+  }, [isDark]);
 
   return (
     <div className="min-h-screen  bg-white  text-black01 dark:bg-darkNavy dark:text-white px-[8.20512821%] md:px-[3.83693046%] lg:px-[7.777777777777778%] font-inter">
