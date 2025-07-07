@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import throttle from "lodash.throttle";
+import { useState } from "react";
 import clsx from "clsx";
 import { NavLink } from "react-router-dom";
 import { NavData } from "../data/NavData";
