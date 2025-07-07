@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import HandleLoadingComponent from './components/Loader/HandleLoadingComponent';
 import ScrollToTop from './components/ScrollToTop';
-import FloatingTabs from './components/FloatingTabs';
 import PageWrapper from './utlis/PageWrapper';
 import { AnimatePresence } from 'framer-motion';
 import type { RootState } from './redux/store';
@@ -23,7 +22,6 @@ function App() {
     <div className="min-h-screen  bg-white  text-black01 dark:bg-darkNavy dark:text-white px-[8.20512821%] md:px-[3.83693046%] lg:px-[7.777777777777778%] font-inter">
       <HandleLoadingComponent />
       <ScrollToTop />
-      <FloatingTabs />
 
       <NavBar />
       

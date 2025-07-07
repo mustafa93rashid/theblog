@@ -11,16 +11,7 @@ import { scrollToTop } from "../utlis/scrollToTop";
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
-  useEffect(() => {
-    const handleScroll = throttle(() => {
-      setIsScrolled(window.scrollY > 3);
-    }, 200);
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Motion variants for the entire menu container
   const menuVariants: Variants = {
@@ -44,16 +35,13 @@ const NavBar = () => {
   };
 
   return (
-    <nav className={clsx(
-      "px-[8.20512821%] md:px-[3.83693046%] lg:px-[7.777777777777778%]", // Navbar Breakpoints (Responsive Horizontal Padding)
-      "fixed  left-1/2 -translate-x-1/2 pt-5 pb-5 z-50 border border-transparent",  //  Navbar Layout & Positioning
-      "bg-white dark:bg-darkNavy",  // Background Colors (Light/Dark Mode)
-      "transition-all duration-200 ease-in-out",  // Transition Behavior
-      {
-        "w-full": !isScrolled || menuOpen,
-        "w-[85%] mt-3 rounded-4xl shadow shadow-darkNavy dark:border-gray-600": isScrolled && !menuOpen,
-      }   //Scrolled State 
-    )}>
+<nav className={clsx(
+  "px-[8.20512821%] md:px-[3.83693046%] lg:px-[7.777777777777778%]",
+  "fixed left-1/2 -translate-x-1/2 pt-5 pb-5 z-50 border border-transparent",
+  "bg-white dark:bg-darkNavy",
+  "transition-all duration-200 ease-in-out",
+  "w-full"
+)}>
 
       <div className="flex justify-between items-center w-full">
         <p className="font-semibold text-lg  leading-6 lg:text-[20px]">Your Name</p> {/* main website name */}

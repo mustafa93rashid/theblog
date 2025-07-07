@@ -1,9 +1,7 @@
-import CommingSoon from "../sections/CommingSoon"
 
 const About = () => {
   return (
     <>
-      <CommingSoon />
     </>
   )
 }

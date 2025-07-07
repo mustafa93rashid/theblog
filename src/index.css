@@ -15,19 +15,3 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 
-/* globals.css */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply rounded-full bg-gradient-to-b from-[var(--color-purple01)] to-[var(--color-pink01)];
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-gradient-to-b from-[var(--color-pink01)] to-[var(--color-darkNavy)];
-}
