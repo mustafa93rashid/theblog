@@ -58,7 +58,7 @@ const RecentPosts: React.FC<RecentPostsProps> = ({ postsCount }) => {
           {recentPosts.length > 3 && (
             <BlogCard
               blog={recentPosts[3]}
-              cardContainerClass="flex gap-6 flex-col lg:flex-row mt-[60px]"
+              cardContainerClass="flex gap-6 flex-col lg:flex-row mt-[30px]"
               imgClass="max-h-[246px] lg:w-1/2 w-full"
               titleClass="text-2xl leading-8"
               pargClass="lg:w-1/2 w-full"

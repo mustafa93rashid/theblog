@@ -31,7 +31,7 @@ const BlogDetails = () => {
   }
 
   return (
-    <div>
+    <>
       <div className="container mx-auto flex flex-col-reverse md:flex-row gap-8 mt-8">
         <RecentPosts postsCount={9} isBlogDetails={false} />
         <div className="w-full md:w-[67.5%] flex flex-col gap-8 ">
@@ -50,7 +50,7 @@ const BlogDetails = () => {
       <div className=" md:block lg:hidden mt-5">
         <StoriesAndInterviews pargraphSize={`lg:w-[59%]`} />
       </div>
-    </div>
+    </>
 
   );
 };

@@ -22,6 +22,10 @@ const SpeechReader: React.FC<SpeechReaderProps> = ({ post }) => {
 
     loadVoices();
     synth.onvoiceschanged = loadVoices;
+
+    return () => {
+      synth.cancel();
+    };
   }, [synth]);
 
   const extractText = () => {
@@ -46,7 +50,7 @@ const SpeechReader: React.FC<SpeechReaderProps> = ({ post }) => {
     if (!content || synth.speaking) return;
 
     const utterance = new SpeechSynthesisUtterance(content);
-    utterance.lang = "en-US"; // ثابت: لغة إنجليزية
+    utterance.lang = "en-US";
 
     const selectedVoice =
       voices.find((v) => v.lang === "en-US") || voices.find((v) => v.default) || voices[0];

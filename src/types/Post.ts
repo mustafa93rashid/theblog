@@ -33,5 +33,4 @@ export interface Paragraph {
 export interface Paragraph01 {
   type: "p";
   text: string | string[];
-
 }
