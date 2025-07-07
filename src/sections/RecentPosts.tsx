@@ -42,7 +42,7 @@ const RecentPosts: React.FC<RecentPostsProps> = ({ postsCount }) => {
               />
             </div>
 
-            <div className="flex flex-col gap-8 w-full lg:w-1/2">
+            <div className="flex flex-col gap-8 w-full lg:w-1/2 mt-5 lg:mt-0">
               {recentPosts.slice(1, 3).map((blog) => (
                 <BlogCard
                   key={blog.id}

@@ -47,7 +47,7 @@ const BlogDetails = () => {
           </div>
         </div>
       </div>
-      <div className=" md:block lg:hidden">
+      <div className=" md:block lg:hidden mt-5">
         <StoriesAndInterviews pargraphSize={`lg:w-[59%]`} />
       </div>
     </div>

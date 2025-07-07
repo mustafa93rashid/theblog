@@ -37,7 +37,7 @@ const Hero = () => {
   return (
     <div className="mt-5 w-full absolute left-0 top-[80px] md:mt-[30px] lg:static">
       <motion.h1
-        className="text-6xl font-bold text-center w-full border-y-1 py-2 border-black01 dark:border-white md:text-[157px] lg:text-[175px] xl:text-[200px]"
+        className="text-6xl font-bold text-center w-full border-y-1 py-2 border-black01 dark:border-white md:text-[135px] lg:text-[175px] xl:text-[200px]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
